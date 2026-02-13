@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTTP Logger</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    details > summary { cursor: pointer; list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    .json-key { color: #7dd3fc; }
+    .json-string { color: #86efac; }
+    .json-number { color: #fde68a; }
+    .json-bool { color: #c4b5fd; }
+    .json-null { color: #94a3b8; }
+  </style>
+</head>
+<body class="h-full bg-slate-950 text-slate-200 font-mono text-sm">
+  <div class="h-full flex flex-col">
+    <!-- Header -->
+    <header class="flex-none border-b border-slate-800 px-4 py-3">
+      <div class="flex items-center justify-between gap-4">
+        <div class="flex items-center gap-3 min-w-0">
+          <h1 class="text-base font-bold text-white whitespace-nowrap">HTTP Logger</h1>
+          <div id="connection-status" class="flex items-center gap-1.5 text-xs">
+            <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+            <span>Connecting...</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span id="counter" class="text-xs text-slate-400">0 / 0</span>
+          <button id="clear-btn" class="px-3 py-1.5 text-xs bg-red-900/50 hover:bg-red-900 text-red-300 rounded border border-red-800/50 transition-colors">
+            <i class="bx bx-trash mr-1"></i>Clear All
+          </button>
+        </div>
+      </div>
+      <!-- Curl banner -->
+      <div class="mt-2 flex items-start gap-2 bg-slate-900 rounded border border-slate-800 px-3 py-2">
+        <code id="curl-example" class="flex-1 text-xs text-slate-400 whitespace-pre"></code>
+        <button id="copy-curl-btn" class="flex-none px-2 py-1 text-xs bg-slate-800 hover:bg-slate-700 rounded text-slate-300 transition-colors">
+          <i class="bx bx-copy mr-1"></i>Copy
+        </button>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <div class="flex-1 flex min-h-0">
+      <!-- Sidebar: request list -->
+      <aside id="sidebar" class="w-80 flex-none border-r border-slate-800 overflow-y-auto">
+        <div id="request-list" class="divide-y divide-slate-800/50"></div>
+        <div id="load-more-sentinel" class="h-1"></div>
+      </aside>
+
+      <!-- Detail panel -->
+      <main id="detail-panel" class="flex-1 overflow-y-auto p-4">
+        <!-- Placeholder shown when no request selected -->
+        <div id="placeholder" class="h-full flex flex-col items-center justify-center text-center">
+          <i class="bx bx-broadcast text-6xl text-slate-700 mb-4"></i>
+          <p class="text-slate-400 text-base mb-2">Send a request to get started</p>
+          <div class="bg-slate-900 rounded border border-slate-800 px-4 py-3 text-left max-w-lg">
+            <code id="placeholder-curl" class="text-xs text-slate-400 whitespace-pre"></code>
+          </div>
+        </div>
+        <!-- Request detail (hidden by default) -->
+        <div id="detail" class="hidden"></div>
+      </main>
+    </div>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
