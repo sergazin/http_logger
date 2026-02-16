@@ -1,4 +1,4 @@
-# HTTP Logger
+# Neo HTTP Logger
 
 A lightweight HTTP request inspector and logger with a real-time web UI. Send any HTTP request to the `/hook` endpoint and instantly see it in the browser — method, URL, headers, and body.
 
@@ -7,7 +7,7 @@ A lightweight HTTP request inspector and logger with a real-time web UI. Send an
 ## Install
 
 ```bash
-cargo install --git https://github.com/sergazin/http_logger
+cargo install --git https://github.com/sergazin/neo_http_logger
 ```
 
 ## Features

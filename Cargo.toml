@@ -1,11 +1,11 @@
 [package]
-name = "http_logger"
+name = "neo_http_logger"
 version = "0.1.0"
 edition = "2024"
 authors = ["Arman Sergazin <arman@sergazin.com>"]
 description = "HTTP request/response logger"
-homepage = "https://sergazin.com/dev/rust/crates/http_logger"
-repository = "https://github.com/sergazin/http_logger.git"
+homepage = "https://sergazin.com/dev/rust/crates/neo_http_logger"
+repository = "https://github.com/sergazin/neo_http_logger.git"
 license = "Apache-2.0"
 
 [dependencies]

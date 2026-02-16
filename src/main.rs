@@ -86,7 +86,7 @@ async fn main() {
         .unwrap_or_else(|_| "127.0.0.1".to_string());
 
     let addr = format!("0.0.0.0:{port}");
-    println!("HTTP Logger → http://{lan_ip}:{port}/");
+    println!("Neo HTTP Logger → http://{lan_ip}:{port}/");
 
     let listener = tokio::net::TcpListener::bind(&addr).await.unwrap();
     axum::serve(listener, app).await.unwrap();
